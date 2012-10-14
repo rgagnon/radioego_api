@@ -1,6 +1,6 @@
 # taken from http://rvm.beginrescueend.com/integration/capistrano/
 set :rvm_type, :user                      # we have RVM in home dir, not system-wide install
-$:.unshift("#{ENV["HOME"]}/.rvm/lib")     # Add RVM's lib directory to the load path.
+#$:.unshift("#{ENV["HOME"]}/.rvm/lib")     # Add RVM's lib directory to the load path.
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
 set :rvm_ruby_string, 'ruby-1.9.3-p194@radioego_api'   # Or whatever env you want it to run in.
 
@@ -8,7 +8,7 @@ set :application, "RadioEgoApi"
 
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
-set :repository,  "git@github.com:groupefungo/radioego_api.git"
+set :repository,  "git@github.com:rgagnon/radioego_api.git"
 set :scm, "git"
 set :user, "rgagnon"  # The server's user for deploys
 set :scm_passphrase, proc{Capistrano::CLI.password_prompt('GitHub password:')}
