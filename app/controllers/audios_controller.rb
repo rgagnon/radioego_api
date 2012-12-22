@@ -1,11 +1,11 @@
 class AudiosController < ApplicationController
   def index
-    @audios = Audio.all(:limit => 20, :select => [:id, :title, :user_id], :order => 'id desc')
+    @audios = Audio.fetch_audios_and_users
     render json: @audios
   end
   def show
     @audio = Audio.find(params[:id])
-    render json: @audio
+    render json: @audi
   end
 
 end
